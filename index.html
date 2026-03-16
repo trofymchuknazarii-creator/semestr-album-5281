@@ -44,7 +44,57 @@
     <script>
         // ←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←
         // ТУТ ЗАМІНЯЙ НА СВОЇ ФОТО (прямі посилання!)
-        const publicPhotos = Array.from({length: 46}, (_, i) => `https://picsum.photos/id/${100 + i}/800/600`);
+        
+        const publicPhotos = [
+  "https://drive.google.com/uc?export=view&id=13uVsIIUWJvj3S7MIxECBfkpgrqz7M0Ax",
+  "https://drive.google.com/uc?export=view&id=15ouIQXUTTzv4kZPm6a7HHdPHRidLVNKi",
+  "https://drive.google.com/uc?export=view&id=16zzzoal4pmiIw84SS2uAx5dHP9IMxP1e",
+  "https://drive.google.com/uc?export=view&id=178bey1TIvMDjqxYUbIg1Cp01r1FLxdA_",
+  "https://drive.google.com/uc?export=view&id=17Kt9O0axpn50xN9Ryy14vLrNfKQX2xTp",
+  "https://drive.google.com/uc?export=view&id=18EiOqg4OUUJE2p0LdSEN3-gocX19_iZl",
+  "https://drive.google.com/uc?export=view&id=18S-lLkuNvk8JDZ8Vf-RS542BahCH70Mq",
+  "https://drive.google.com/uc?export=view&id=1BbOt4UA41JvNGHOwfzRMvmT33uiKm6Ng",
+  "https://drive.google.com/uc?export=view&id=1E4fdSmkVy0GPc95KxnxWSjDXmWCp9slx",
+  "https://drive.google.com/uc?export=view&id=1FM_rUXItLiQbTFqHrhlQVpQy4730sdmy",
+  "https://drive.google.com/uc?export=view&id=1FVBv0ntafnNZLBEqiD-ztNi-uGV7BZvO",
+  "https://drive.google.com/uc?export=view&id=1FdJQtQZJfRa6_W08WRUbvbo68rZJp8t2",
+  "https://drive.google.com/uc?export=view&id=1IWUXd_WCeXEEpjfTcUxRkT-Lddmnyc46",
+  "https://drive.google.com/uc?export=view&id=1J3RxAZLEiV3kbIXDRdzySMEfH3wpLfmE",
+  "https://drive.google.com/uc?export=view&id=1MWPZfZP7m88TW7ND25P__xn2ZsIJ5qzF",
+  "https://drive.google.com/uc?export=view&id=1Nb64l1BXyXBtKP8PZ4xkwhoMi7p0ccU3",
+  "https://drive.google.com/uc?export=view&id=1PGcA6IvKPU2Zkcm1DbTbJvDRit9GuA8v",
+  "https://drive.google.com/uc?export=view&id=1QCEgDtEdV7g3WmtolvnQQJu9HolVS8-l",
+  "https://drive.google.com/uc?export=view&id=1QSVgbAMLbViIVB6Jcj9Zzs42a1jSZrH9",
+  "https://drive.google.com/uc?export=view&id=1RBc__jO5zaOkcM45hlolZWp6Zs8j2z-q",
+  "https://drive.google.com/uc?export=view&id=1RG0IlB40g3V-u55YbL8wJK559oB7kva1",
+  "https://drive.google.com/uc?export=view&id=1Rmh02-pWbRrE84TJILd6FoOVhcMC0w2O",
+  "https://drive.google.com/uc?export=view&id=1RvdOI33pmrHLMsX4-2R4XC9uaGo5xeWe",
+  "https://drive.google.com/uc?export=view&id=1U5Q7WXFB70ryIYVwwVKsIr1JwXnxpIRE",
+  "https://drive.google.com/uc?export=view&id=1VLkEct9AaDUT6AIG3rzTfMUGAK2rNW9Q",
+  "https://drive.google.com/uc?export=view&id=1ZABvPZRWUoOqhThmFcAR86bndQve1i-S",
+  "https://drive.google.com/uc?export=view&id=1awAR4AsGKDTVS4lR3AL3isPAvnK9mF0S",
+  "https://drive.google.com/uc?export=view&id=1ceIXaXNaAleGJLmg32UUhN4Vgu3baLop",
+  "https://drive.google.com/uc?export=view&id=1ciODWFhta_IQY1lhI3-M7VpaTvGU0xOy",
+  "https://drive.google.com/uc?export=view&id=1dg1prthwA06KcqHNVsFnioPPNkr4NDMJ",
+  "https://drive.google.com/uc?export=view&id=1eqppFiSoQDL17wTem1NTkkMgTx7DSfCF",
+  "https://drive.google.com/uc?export=view&id=1fOEr-z618xR6g1Su6AjCUoVDapqvyjt0",
+  "https://drive.google.com/uc?export=view&id=1kZ0mG5v6UMHDEHMcDQ2H0Lm9LpZkAlCO",
+  "https://drive.google.com/uc?export=view&id=1lDWF7uxWFuyargNjkkV5Rzz-dOf-egRH",
+  "https://drive.google.com/uc?export=view&id=1lkhbeYnKy_k6kM_T8TrLTRy4SjHu8YPV",
+  "https://drive.google.com/uc?export=view&id=1mtmHZKUEjC4v05Lgj86FCRQj-2RUEHXG",
+  "https://drive.google.com/uc?export=view&id=1nHHjCjjWbv6CjpTCklvP9ad-BRtaStOl",
+  "https://drive.google.com/uc?export=view&id=1nmfLK6dDnxBm7roK49G09dXh5Y0gbHBQ",
+  "https://drive.google.com/uc?export=view&id=1oEZzbSrW-6kAkGEhZW605bTBsUNwxME8",
+  "https://drive.google.com/uc?export=view&id=1ryyLseCmEOHrETNbi2LrdfvnPi6OrlZg",
+  "https://drive.google.com/uc?export=view&id=1sGuaW1hv1mztMV6DczkV9c8GU5Y7hI2a",
+  "https://drive.google.com/uc?export=view&id=1sO6GCs8dC6WXzrUj9KX6FD6oe3l6i0gf",
+  "https://drive.google.com/uc?export=view&id=1txAgBLmm6fKikTsg_k2VYB4fm-376yC-",
+  "https://drive.google.com/uc?export=view&id=1uX9gNIn4LHSm16BpdX03Dk_MW6yG8Kk5",
+  "https://drive.google.com/uc?export=view&id=1vI4VFK9qQu_1fjjL4mb011LCvOIacS1x",
+  "https://drive.google.com/uc?export=view&id=1xqTsPpx0-MGnqd5opon7wCuN3QbsEic8",
+  "https://drive.google.com/uc?export=view&id=1yt7F1D80aE5-STma4l1c-Y8oV7qBkjt0",
+  "https://drive.google.com/uc?export=view&id=1zrjrrQKHuyDquDoDSw8-Wpbyx5FsPmy0"
+];
         const hiddenPhotos = Array.from({length: 28}, (_, i) => `https://picsum.photos/id/${200 + i}/800/600`);
         // ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
 
