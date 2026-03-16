@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Фотоальбом за семестр</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .photo-card { transition: all 0.3s; }
+        .photo-card:hover { transform: scale(1.05); box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.3); }
+        .modal { animation: fadeIn 0.3s; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    </style>
+</head>
+<body class="bg-zinc-950 text-white min-h-screen">
+    <div class="max-w-7xl mx-auto px-4 py-8">
+        <!-- Заголовок — тут подвійний клік -->
+        <header id="header" class="text-center py-10 cursor-pointer select-none">
+            <h1 class="text-5xl font-bold tracking-tight mb-2">Фотоальбом за семестр</h1>
+            <p class="text-zinc-400 text-lg">Подвійний клік (або тап) по заголовку — приховані фото 👀</p>
+        </header>
+
+        <!-- Публічна галерея -->
+        <section>
+            <h2 class="text-3xl font-semibold mb-6 text-center">Публічні фото (46)</h2>
+            <div id="public-gallery" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4"></div>
+        </section>
+
+        <!-- Прихована галерея -->
+        <section id="hidden-section" class="hidden mt-16">
+            <h2 class="text-3xl font-semibold mb-6 text-center text-amber-400">Приховані фото (28) 🔥</h2>
+            <div id="hidden-gallery" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4"></div>
+        </section>
+    </div>
+
+    <!-- Лайтбокс -->
+    <div id="modal" class="hidden fixed inset-0 bg-black/90 flex items-center justify-center z-50 p-4">
+        <div class="relative max-w-4xl w-full">
+            <button onclick="closeModal()" class="absolute -top-12 right-0 text-white text-4xl hover:text-amber-400">✕</button>
+            <img id="modal-img" class="w-full rounded-2xl shadow-2xl" alt="Фото">
+        </div>
+    </div>
+
+    <script>
+        // ←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←
+        // ТУТ ЗАМІНЯЙ НА СВОЇ ФОТО (прямі посилання!)
+        const publicPhotos = Array.from({length: 46}, (_, i) => `https://picsum.photos/id/${100 + i}/800/600`);
+        const hiddenPhotos = Array.from({length: 28}, (_, i) => `https://picsum.photos/id/${200 + i}/800/600`);
+        // ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
+
+        function renderGallery(containerId, photos) {
+            const container = document.getElementById(containerId);
+            container.innerHTML = '';
+            photos.forEach(src => {
+                const div = document.createElement('div');
+                div.className = 'overflow-hidden rounded-2xl photo-card cursor-pointer';
+                div.innerHTML = `<img src="${src}" class="w-full aspect-square object-cover" alt="Фото">`;
+                div.onclick = () => showModal(src);
+                container.appendChild(div);
+            });
+        }
+
+        function showModal(src) {
+            document.getElementById('modal-img').src = src;
+            document.getElementById('modal').classList.remove('hidden');
+            document.getElementById('modal').classList.add('flex');
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        // Подвійний клік по заголовку
+        document.getElementById('header').addEventListener('dblclick', () => {
+            const hidden = document.getElementById('hidden-section');
+            hidden.classList.toggle('hidden');
+            if (!hidden.classList.contains('hidden')) {
+                hidden.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+
+        // Ініціалізація
+        window.onload = () => {
+            renderGallery('public-gallery', publicPhotos);
+            renderGallery('hidden-gallery', hiddenPhotos);
+            
+            // Закриття модалки по кліку поза фото
+            document.getElementById('modal').addEventListener('click', (e) => {
+                if (e.target.id === 'modal') closeModal();
+            });
+        };
+    </script>
+</body>
+</html>
