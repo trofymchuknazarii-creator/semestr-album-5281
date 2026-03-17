@@ -95,7 +95,34 @@
   "https://i.postimg.cc/y3j6v76r/1-(8).jpg",
   "https://i.postimg.cc/fSCWBMWP/1-(9).jpg"
 ];
-        const hiddenPhotos = Array.from({length: 28}, (_, i) => `https://picsum.photos/id/${200 + i}/800/600`);
+        const photoIds = [
+  "kBF9NJYb/20260212-125901",
+  "TpqGjdNt/20260212-125947",
+  "Xpc3Kj1H/20260212-125952",
+  "nCYZKFS0/20260212-130243",
+  "CzHYChr7/20260212-130244",
+  "87pGt2xm/20260212-130247",
+  "BjS3MrRN/20260212-130252",
+  "w1qz0Cnk/20260212-141152-(2)",
+  "DSvhB9RB/20260212-141154",
+  "zyzN0s4d/20260212-142047",
+  "k2JCf0LY/20260219-133434",
+  "Jsr8PfSS/20260227-100026",
+  "HrYmBqfg/20260227-124736",
+  "75H4mFpw/20260227-124742",
+  "Yvr7b5J7/20260303-131739",
+  "xXfQtwW0/20260312-125658",
+  "87ZS3ySV/20260312-125712",
+  "75KkcBkw/20260312-130028",
+  "210DJHDN/20260312-132713",
+  "RWgB8PBm/20260313-133345",
+  "ZWwSgfSJ/20260313-133559"
+];
+
+const hiddenPhotos = Array.from(
+  { length: photoIds.length },
+  (_, i) => `https://i.postimg.cc/${photoIds[i]}.jpg`
+);
         // ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
 
         function renderGallery(containerId, photos) {
