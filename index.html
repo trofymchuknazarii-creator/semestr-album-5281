@@ -17,18 +17,18 @@
         <!-- Заголовок — тут подвійний клік -->
         <header id="header" class="text-center py-10 cursor-pointer select-none">
             <h1 class="text-5xl font-bold tracking-tight mb-2">Фотоальбом за семестр</h1>
-            <p class="text-zinc-400 text-lg">Подвійний клік (або тап) по заголовку — приховані фото 👀</p>
+        
         </header>
 
         <!-- Публічна галерея -->
         <section>
-            <h2 class="text-3xl font-semibold mb-6 text-center">Публічні фото (46)</h2>
+            <h2 class="text-3xl font-semibold mb-6 text-center">Публічні фото (48)</h2>
             <div id="public-gallery" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4"></div>
         </section>
 
         <!-- Прихована галерея -->
         <section id="hidden-section" class="hidden mt-16">
-            <h2 class="text-3xl font-semibold mb-6 text-center text-amber-400">Приховані фото (28) 🔥</h2>
+            <h2 class="text-3xl font-semibold mb-6 text-center text-amber-400">Приховані фото (21) 🔥</h2>
             <div id="hidden-gallery" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4"></div>
         </section>
     </div>
@@ -45,84 +45,80 @@
         // ←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←
         // ТУТ ЗАМІНЯЙ НА СВОЇ ФОТО (прямі посилання!)
         
-        const publicPhotos = [
-  "https://i.postimg.cc/PfN14pKf/1-(1).jpg",
-  "https://i.postimg.cc/fWkYKt50/1-(10).jpg",
-  "https://i.postimg.cc/pVyKZhkF/1-(11).jpg",
-  "https://i.postimg.cc/QKmN0jxG/1-(12).jpg",
-  "https://i.postimg.cc/JHx7PR48/1-(13).jpg",
-  "https://i.postimg.cc/MXSyPtKK/1-(14).jpg",
-  "https://i.postimg.cc/dZ6Q4Jtv/1-(15).jpg",
-  "https://i.postimg.cc/Th6r7QY3/1-(16).jpg",
-  "https://i.postimg.cc/Bt0xYNQ6/1-(17).jpg",
-  "https://i.postimg.cc/fkNx25TV/1-(18).jpg",
-  "https://i.postimg.cc/5jVw7pNH/1-(19).jpg",
-  "https://i.postimg.cc/SYdQDmQD/1-(2).jpg",
-  "https://i.postimg.cc/5jVw7pNY/1-(20).jpg",
-  "https://i.postimg.cc/z3rntpXR/1-(21).jpg",
-  "https://i.postimg.cc/5jVw7pNS/1-(22).jpg",
-  "https://i.postimg.cc/7bkgsXYN/1-(23).jpg",
-  "https://i.postimg.cc/14QpCM5H/1-(24).jpg",
-  "https://i.postimg.cc/K42nqQvf/1-(25).jpg",
-  "https://i.postimg.cc/4ngzLwNB/1-(26).jpg",
-  "https://i.postimg.cc/23D4cT89/1-(27).jpg",
-  "https://i.postimg.cc/c6BfVYr7/1-(28).jpg",
-  "https://i.postimg.cc/Sjfcw8J7/1-(29).jpg",
-  "https://i.postimg.cc/64c6YB6M/1-(3).jpg",
-  "https://i.postimg.cc/qgx29nzx/1-(30).jpg",
-  "https://i.postimg.cc/V5WX3MdR/1-(31).jpg",
-  "https://i.postimg.cc/G9xvZYHX/1-(32).jpg",
-  "https://i.postimg.cc/7bnSp7fm/1-(33).jpg",
-  "https://i.postimg.cc/xq3LWHcs/1-(34).jpg",
-  "https://i.postimg.cc/vDt5p9c2/1-(35).jpg",
-  "https://i.postimg.cc/vDt5p9cS/1-(36).jpg",
-  "https://i.postimg.cc/dDjGzdLf/1-(37).jpg",
-  "https://i.postimg.cc/t7NFLPYf/1-(38).jpg",
-  "https://i.postimg.cc/K4DtdLRd/1-(39).jpg",
-  "https://i.postimg.cc/FkpFDhFP/1-(4).jpg",
-  "https://i.postimg.cc/CdsbWDRy/1-(40).jpg",
-  "https://i.postimg.cc/Wtw0QrdL/1-(41).jpg",
-  "https://i.postimg.cc/fkfY6XVQ/1-(42).jpg",
-  "https://i.postimg.cc/z3FT9Wy1/1-(43).jpg",
-  "https://i.postimg.cc/7bnSp754/1-(44).jpg",
-  "https://i.postimg.cc/grH3fRxm/1-(45).jpg",
-  "https://i.postimg.cc/yk60BdRq/1-(46).jpg",
-  "https://i.postimg.cc/rzN5vWD8/1-(47).jpg",
-  "https://i.postimg.cc/CdsbWDRh/1-(48).jpg",
-  "https://i.postimg.cc/64c6YB6j/1-(5).jpg",
-  "https://i.postimg.cc/RJdCXvCp/1-(6).jpg",
-  "https://i.postimg.cc/GTK3qb35/1-(7).jpg",
-  "https://i.postimg.cc/y3j6v76r/1-(8).jpg",
-  "https://i.postimg.cc/fSCWBMWP/1-(9).jpg"
-];
-        const photoIds = [
-  "kBF9NJYb/20260212-125901",
-  "TpqGjdNt/20260212-125947",
-  "Xpc3Kj1H/20260212-125952",
-  "nCYZKFS0/20260212-130243",
-  "CzHYChr7/20260212-130244",
-  "87pGt2xm/20260212-130247",
-  "BjS3MrRN/20260212-130252",
-  "w1qz0Cnk/20260212-141152-(2)",
-  "DSvhB9RB/20260212-141154",
-  "zyzN0s4d/20260212-142047",
-  "k2JCf0LY/20260219-133434",
-  "Jsr8PfSS/20260227-100026",
-  "HrYmBqfg/20260227-124736",
-  "75H4mFpw/20260227-124742",
-  "Yvr7b5J7/20260303-131739",
-  "xXfQtwW0/20260312-125658",
-  "87ZS3ySV/20260312-125712",
-  "75KkcBkw/20260312-130028",
-  "210DJHDN/20260312-132713",
-  "RWgB8PBm/20260313-133345",
-  "ZWwSgfSJ/20260313-133559"
+       const publicPhotos = [
+  "https://i.postimg.cc/qgVtB79W/1-(1).jpg",
+  "https://i.postimg.cc/hhWJ4GkS/1-(10).jpg",
+  "https://i.postimg.cc/HjDJWLqY/1-(11).jpg",
+  "https://i.postimg.cc/jC0Wqjp5/1-(12).jpg",
+  "https://i.postimg.cc/pyb9Vdwm/1-(13).jpg",
+  "https://i.postimg.cc/kMVf5h08/1-(14).jpg",
+  "https://i.postimg.cc/SjFXQKBX/1-(15).jpg",
+  "https://i.postimg.cc/wxt0BbCL/1-(16).jpg",
+  "https://i.postimg.cc/T2yCPHzr/1-(17).jpg",
+  "https://i.postimg.cc/Y24bSy5z/1-(18).jpg",
+  "https://i.postimg.cc/mZc8r6vS/1-(19).jpg",
+  "https://i.postimg.cc/YjK42S5K/1-(2).jpg",
+  "https://i.postimg.cc/VsSDNHxR/1-(20).jpg",
+  "https://i.postimg.cc/T2yCPHzQ/1-(21).jpg",
+  "https://i.postimg.cc/zDL0fPs6/1-(22).jpg",
+  "https://i.postimg.cc/zDL0fPs4/1-(23).jpg",
+  "https://i.postimg.cc/ZY9VqDG1/1-(24).jpg",
+  "https://i.postimg.cc/667YQ1kk/1-(25).jpg",
+  "https://i.postimg.cc/rydQpP6X/1-(26).jpg",
+  "https://i.postimg.cc/DfWBzMVh/1-(27).jpg",
+  "https://i.postimg.cc/2jPTL7Yt/1-(28).jpg",
+  "https://i.postimg.cc/tRLDnNbf/1-(29).jpg",
+  "https://i.postimg.cc/7b8CPLFr/1-(3).jpg",
+  "https://i.postimg.cc/dQznZjFp/1-(30).jpg",
+  "https://i.postimg.cc/1RLMVrSL/1-(31).jpg",
+  "https://i.postimg.cc/05LZK0x1/1-(32).jpg",
+  "https://i.postimg.cc/MZhtfmx2/1-(33).jpg",
+  "https://i.postimg.cc/fW65SfZh/1-(34).jpg",
+  "https://i.postimg.cc/FF2GkVmv/1-(35).jpg",
+  "https://i.postimg.cc/wxSFRQHH/1-(36).jpg",
+  "https://i.postimg.cc/tRLDnNy9/1-(37).jpg",
+  "https://i.postimg.cc/7PpXJnDx/1-(38).jpg",
+  "https://i.postimg.cc/T2ZQ5JGY/1-(39).jpg",
+  "https://i.postimg.cc/s1dBf2kR/1-(4).jpg",
+  "https://i.postimg.cc/1RLMVrPz/1-(40).jpg",
+  "https://i.postimg.cc/xjWgN3YC/1-(41).jpg",
+  "https://i.postimg.cc/KcdQ3DFj/1-(42).jpg",
+  "https://i.postimg.cc/NGWb2kYL/1-(43).jpg",
+  "https://i.postimg.cc/h4HMQ1gX/1-(44).jpg",
+  "https://i.postimg.cc/SQwVYfq2/1-(45).jpg",
+  "https://i.postimg.cc/5NLgBQNt/1-(46).jpg",
+  "https://i.postimg.cc/SQwVYfqz/1-(47).jpg",
+  "https://i.postimg.cc/05LZK0xw/1-(48).jpg",
+  "https://i.postimg.cc/fkn3WbGN/1-(5).jpg",
+  "https://i.postimg.cc/14hgRzkS/1-(6).jpg",
+  "https://i.postimg.cc/kD3VM50q/1-(7).jpg",
+  "https://i.postimg.cc/jC0WqjpK/1-(8).jpg",
+  "https://i.postimg.cc/grFwc0CG/1-(9).jpg"
 ];
 
-const hiddenPhotos = Array.from(
-  { length: photoIds.length },
-  (_, i) => `https://i.postimg.cc/${photoIds[i]}.jpg`
-);
+const hiddenPhotos = [
+  "https://i.postimg.cc/kXL4mDxf/20260212-125901.jpg",
+  "https://i.postimg.cc/sDbXr1YC/20260212-125947.jpg",
+  "https://i.postimg.cc/xTBC2qv2/20260212-125952.jpg",
+  "https://i.postimg.cc/jdB5bCH0/20260212-130243.jpg",
+  "https://i.postimg.cc/xTBC2qKw/20260212-130244.jpg",
+  "https://i.postimg.cc/Sx8KNqr3/20260212-130247.jpg",
+  "https://i.postimg.cc/sgS2DymF/20260212-130252.jpg",
+  "https://i.postimg.cc/4xt3NZ5j/20260212-141152-(2).jpg",
+  "https://i.postimg.cc/cLYJ4Zhy/20260212-141154.jpg",
+  "https://i.postimg.cc/cLYJ4ZhN/20260212-142047.jpg",
+  "https://i.postimg.cc/jSNjdKcT/20260219-133434.jpg",
+  "https://i.postimg.cc/Z53qKZHY/20260227-100026.jpg",
+  "https://i.postimg.cc/VkMNL1gd/20260227-124736.jpg",
+  "https://i.postimg.cc/NjT0fYD9/20260227-124742.jpg",
+  "https://i.postimg.cc/W1r4bj8d/20260303-131739.jpg",
+  "https://i.postimg.cc/mgMr2RjF/20260312-125658.jpg",
+  "https://i.postimg.cc/6QXp8SbT/20260312-125712.jpg",
+  "https://i.postimg.cc/tgj4sfvZ/20260312-130028.jpg",
+  "https://i.postimg.cc/pdHLm7cr/20260312-132713.jpg",
+  "https://i.postimg.cc/JhLzsgYs/20260313-133345.jpg",
+  "https://i.postimg.cc/R0BZW8pJ/20260313-133559.jpg"
+];
         // ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
 
         function renderGallery(containerId, photos) {
